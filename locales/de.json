@@ -1,5 +1,15 @@
 {
   "main": {
     "settings": "Einstellungen"
+  },
+  "home": {
+    "jumbotron": {
+      "lead": "Erstelle bbCodes mit Hilfe von deviantArt and Derpibooru Links in 10 seconds flat.",
+      "hide": "Verstecken"
+    }
+  },
+  "footer": {
+    "impress": "Impressum",
+    "privacy": "Datenschutz"
   }
 }
