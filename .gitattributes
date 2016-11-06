@@ -1,0 +1,4 @@
+assets/css/*.min.css linguist-vendored
+assets/js/*.min.js linguist-vendored
+assets/fonts/* linguist-vendored
+assets/src/* linguist-vendored
