@@ -11,5 +11,15 @@
   "footer": {
     "impress": "Impress",
     "privacy": "Privacy"
+  },
+  "creator": {
+    "form": {
+      "add": "Add",
+      "placeholder": "deviantArt or Derpibooru URL"
+    },
+    "preview": {
+      "loading": "Loading",
+      "failed": "Could not add image! <small>Is the url correct?</small>"
+    }
   }
 }

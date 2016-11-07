@@ -11,5 +11,15 @@
   "footer": {
     "impress": "Impressum",
     "privacy": "Datenschutz"
+  },
+  "creator": {
+    "form": {
+      "add": "Hinzufügen",
+      "placeholder": "deviantArt oder Derpibooru URL"
+    },
+    "preview": {
+      "loading": "Laden",
+      "failed": "Bild konnte nicht hinzugefügt werden! <small>Ist die Adresse richtig?</small>"
+    }
   }
 }

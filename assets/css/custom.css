@@ -5,3 +5,26 @@
 #footer p {
     margin-bottom: 6px;
 }
+
+#wrapper {
+    margin-top: 20px;
+}
+
+.media img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+
+.img-data {
+    margin: 16px 0;
+}
+
+#loading, #failed {
+    display: none;
+}
+
+#url-input {
+    margin-bottom: 16px;
+}

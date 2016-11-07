@@ -2,12 +2,36 @@
     <div class="jumbotron jumbotron-fluid" id="homejumbotron">
 
         <div class="container">
-            <a class="pull-right btn btn-outline-success btn-sm" role="button" id="dismiss" data-toggle="tooltip"
-               data-placement="left" title="{{lang.home.jumbotron.hide}}"><i class="fa fa-angle-double-up"></i></a>
+            <button class="pull-right btn btn-outline-success btn-sm" role="button" id="dismiss" data-toggle="tooltip"
+                    data-placement="left" title="{{lang.home.jumbotron.hide}}"><i class="fa fa-angle-double-up"></i>
+            </button>
             <h1 class="display-3">bbCode Creator</h1>
             <p class="lead">{{lang.home.jumbotron.lead}}</p>
         </div>
     </div>
 {{/hidejumbo}}
 
-lalals
+<div class="container" id="wrapper">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group has-success" id="url-input">
+                <input class="form-control" type="text" placeholder="{{lang.creator.form.placeholder}}" id="url">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-outline-success"
+                            id="getImage">{{lang.creator.form.add}}</button>
+                </span>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" id="loading">
+        <div class="col-xs-12">
+            <h3 class="display-4 text-xs-center">{{lang.creator.preview.loading}} <i class="fa fa-spinner fa-spin fa-fw"></i></h3>
+        </div>
+    </div>
+    <div class="row" id="failed">
+        <div class="col-xs-12">
+            <h4 class="text-xs-center">{{{lang.creator.preview.failed}}}</h4>
+        </div>
+    </div>
+</div>
