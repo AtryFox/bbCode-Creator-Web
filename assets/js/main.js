@@ -24,6 +24,7 @@ $('#getImage').on('click', function () {
 
     $.getJSON('https://derpibooru.org/oembed.json?url=' + url)
         .done(function (data) {
+            data.url = data.thumbnail_url;
             addImage(data);
         })
         .fail(function (data) {
@@ -58,7 +59,7 @@ $('#getImage').on('click', function () {
 });
 
 $('#wrapper').on('click', '.remove',function () {
-    $(this).parent().parent().slideUp(function () {
+    $(this).parent().parent().parent().slideUp(function () {
         $(this).remove();
     });
 });

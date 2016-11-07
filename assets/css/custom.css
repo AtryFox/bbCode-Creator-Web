@@ -6,6 +6,10 @@
     margin-bottom: 6px;
 }
 
+#footer .fa.fa-heart{
+    color: red;
+}
+
 #wrapper {
     margin-top: 20px;
 }

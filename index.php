@@ -9,6 +9,7 @@ $m = new Mustache_Engine(array(
     'cache' => dirname(__FILE__) . '/cache',
 ));
 
+
 // LANGUAGE
 $locale = json_decode(file_get_contents("locales/en.json"), true);
 if (isset($_COOKIE["lang"])) {
@@ -16,7 +17,7 @@ if (isset($_COOKIE["lang"])) {
 
     if ($lang_code != "en") {
         if (file_exists("locales/" . $lang_code . ".json")) {
-            $locale = array_merge($locale, json_decode(file_get_contents("locales/" . $lang_code . ".json"), true));
+            $locale = array_replace_recursive($locale, json_decode(file_get_contents("locales/" . $lang_code . ".json"), true));
         }
     }
 }

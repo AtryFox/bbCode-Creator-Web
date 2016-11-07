@@ -10,7 +10,8 @@
   },
   "footer": {
     "impress": "Impressum",
-    "privacy": "Datenschutz"
+    "privacy": "Datenschutz",
+    "info": "Mit <i class='fa fa-heart'></i> entwicklet in Deutschland."
   },
   "creator": {
     "form": {

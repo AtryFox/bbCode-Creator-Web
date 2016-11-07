@@ -10,7 +10,8 @@
   },
   "footer": {
     "impress": "Impress",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "info": "Developed with <i class='fa fa-heart'></i> in Germany."
   },
   "creator": {
     "form": {
