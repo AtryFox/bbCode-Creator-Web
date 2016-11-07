@@ -22,7 +22,7 @@ $('#getImage').on('click', function () {
     $('#url').prop('disabled', true);
     $('#loading').slideDown();
 
-    $.getJSON('http://backend.deviantart.com/oembed?url=' + url + '&format=jsonp&callback=?')
+    $.getJSON('https://derpibooru.org/oembed.json?url=' + url)
         .done(function (data) {
             addImage(data);
         })
@@ -39,7 +39,7 @@ $('#getImage').on('click', function () {
             $('#loading').slideUp();
         });
 
-    /*$.post('ajax/GetImage.php', {url: url})
+    /*$.getJSON('http://backend.deviantart.com/oembed?url=' + url + '&format=jsonp&callback=?')
         .done(function (data) {
             addImage(data);
         })
