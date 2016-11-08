@@ -8,6 +8,7 @@ $('#locales a').on('click', function () {
 });
 
 $('#dismiss').on('click', function () {
+    $(this).tooltip('dispose');
     $(this).parent().parent().slideUp(function () {
         $(this).remove();
     });
