@@ -5,7 +5,8 @@
   "home": {
     "jumbotron": {
       "lead": "Create bbCodes using deviantArt and Derpibooru links in 10 seconds flat.",
-      "hide": "Hide"
+      "hide": "Hide",
+      "wip": "This project is currently work in progress and not <s>fully</s> functional yet."
     }
   },
   "footer": {
