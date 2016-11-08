@@ -27,6 +27,8 @@ $('#getImage').on('click', function () {
         getDeviantart(url, addImage);
     } else if(url.includes('derpibooru.org')) {
         getDerpibooru(url, addImage);
+    }  else {
+        addImage(null);
     }
 
 });
@@ -80,6 +82,8 @@ function addImage(data){
             $('#failed').slideUp();
         }, 3000);
     } else {
+        data.data = JSON.stringify(data);
+
         $.get('views/elements/image.html', function (template) {
             var rendered = Mustache.render(template, data);
             $(rendered).appendTo($('#wrapper')).hide().slideDown();
