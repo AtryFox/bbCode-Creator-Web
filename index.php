@@ -45,6 +45,9 @@ switch ($page) {
     case "home":
         $data->page_home = true;
         break;
+    case "settings":
+        $data->page_settings = true;
+        break;
     default:
         $data->page_notfound = true;
         break;

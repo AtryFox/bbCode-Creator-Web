@@ -38,7 +38,7 @@
 
             <ul class="nav navbar-nav float-lg-right">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-cog"></i> {{lang.main.settings}}</a>
+                    <a class="nav-link {{#page_settings}}active{{/page_settings}}" href="settings"><i class="fa fa-cog"></i> {{lang.main.settings}}</a>
                 </li>
             </ul>
         </div>
@@ -49,6 +49,10 @@
 {{#page_home}}
     {{> subs/home}}
 {{/page_home}}
+
+{{#page_settings}}
+    {{> subs/settings}}
+{{/page_settings}}
 
 {{>footer}}
 </body>
