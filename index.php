@@ -22,6 +22,13 @@ if (isset($_COOKIE["lang"])) {
     }
 }
 
+// VERSION
+if(strpos(strtolower($_SERVER["HTTP_HOST"]), "dev.creator") !== false) {
+    $version = "dev" . filemtime(__FILE__);
+} else {
+    $version = trim(file_get_contents('version'));
+}
+
 // DATA
 $data = new stdClass();
 
@@ -33,6 +40,7 @@ foreach(array_diff(scandir("locales"), array('..', '.')) as $file) {
     array_push($locales, array('name' => str_replace('.json', '', $file)));
 }
 $data->locales = $locales;
+$data->version = $version;
 
 // PAGE
 if (!isset($_GET["page"])) {
@@ -51,6 +59,10 @@ switch ($page) {
     default:
         $data->page_notfound = true;
         break;
+}
+
+function getVersion() {
+
 }
 
 echo $m->render("main", $data);

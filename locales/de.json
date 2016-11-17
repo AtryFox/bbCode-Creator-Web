@@ -9,6 +9,17 @@
       "wip": "Dieses Projekt ist aktuell in Arbeit und noch nicht <s>voll</s> funktionsfähig."
     }
   },
+  "settings": {
+    "welcome": {
+      "name": "Willkommensnachricht",
+      "description": "Macht die Willkommensnachricht auf der Startseite wieder sichtbar.",
+      "button": "Anzeigen"
+    },
+    "bbcode": {
+      "name": "bbCode",
+      "description": "Vorlage zum Erstellen des bbCodes"
+    }
+  },
   "footer": {
     "impress": "Impressum",
     "privacy": "Datenschutz",

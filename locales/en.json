@@ -9,6 +9,17 @@
       "wip": "This project is currently work in progress and not <s>fully</s> functional yet."
     }
   },
+  "settings": {
+    "welcome": {
+      "name": "Welcomemessage",
+      "description": "Makes the welcomemessage on the homepage visible again.",
+      "button": "Show"
+    },
+    "bbcode": {
+      "name": "bbCode",
+      "description": "Template for bbCode creation."
+    }
+  },
   "footer": {
     "impress": "Impress",
     "privacy": "Privacy",
