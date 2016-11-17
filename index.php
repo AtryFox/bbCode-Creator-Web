@@ -26,7 +26,8 @@ if (isset($_COOKIE["lang"])) {
 if(strpos(strtolower($_SERVER["HTTP_HOST"]), "dev.creator") !== false) {
     $version = "dev" . filemtime(__FILE__);
 } else {
-    $version = trim(file_get_contents('version'));
+    $raw = trim(file_get_contents('version');
+    $version = "<a href='https://github.com/DerAtrox/bbCode-Creator-Web/commit/" . $raw . ">" . $raw . "</a>";
 }
 
 // DATA
