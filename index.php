@@ -27,7 +27,7 @@ if(strpos(strtolower($_SERVER["HTTP_HOST"]), "dev.creator") !== false) {
     $version = "dev" . filemtime(__FILE__);
 } else {
     $raw = trim(file_get_contents('version'));
-    $version = "<a href='https://github.com/DerAtrox/bbCode-Creator-Web/commit/" . $raw . ">" . $raw . "</a>";
+    $version = "<a href='https://github.com/DerAtrox/bbCode-Creator-Web/commit/" . $raw . "'>" . $raw . "</a>";
 }
 
 // DATA
