@@ -2,6 +2,23 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
+$.fn.extend({
+    showTooltip: function (text, placement, callback) {
+        placement = placement || 'top';
+
+        this.attr('data-original-title', text);
+        this.tooltip({title: text, placement: placement, trigger: 'manuel'});
+        this.tooltip('show');
+
+        var element = this;
+
+        setTimeout(function () {
+            element.tooltip('hide');
+            if (typeof callback === 'function') callback();
+        }, 2000);
+    }
+});
+
 $('#locales a').on('click', function () {
     Cookies.set('lang', $(this).html());
     location.reload();
@@ -23,11 +40,11 @@ $('#getImage').on('click', function () {
     $('#url').prop('disabled', true);
     $('#loading').slideDown();
 
-    if(url.includes('deviantart.com') || url.includes('fav.me') || url.includes('sta.sh')) {
+    if (url.includes('deviantart.com') || url.includes('fav.me') || url.includes('sta.sh')) {
         getDeviantart(url, addImage);
-    } else if(url.includes('derpibooru.org')) {
+    } else if (url.includes('derpibooru.org')) {
         getDerpibooru(url, addImage);
-    }  else {
+    } else {
         addImage(null);
     }
 
@@ -38,7 +55,7 @@ function getDeviantart(url, callback) {
 
     $.getJSON('http://backend.deviantart.com/oembed?url=' + url + '&format=jsonp&callback=?')
         .done(function (data) {
-            if(!('url' in data)) {
+            if (!('url' in data)) {
                 data.url = data.thumbnail_url;
             }
 
@@ -61,7 +78,7 @@ function getDerpibooru(url, callback) {
             data.url = data.thumbnail_url;
             result = data;
 
-            if(data.author_url.includes('deviantart.com')) {
+            if (data.author_url.includes('deviantart.com')) {
                 getDeviantart(data.author_url, addImage);
                 added = true;
             }
@@ -70,13 +87,13 @@ function getDerpibooru(url, callback) {
             console.log(data);
         })
         .always(function () {
-            if(!added) callback(result);
+            if (!added) callback(result);
         });
 
 }
 
-function addImage(data){
-    if(data == null || 'error' in data) {
+function addImage(data) {
+    if (data == null || 'error' in data) {
         $('#failed').slideDown();
         setTimeout(function () {
             $('#failed').slideUp();
@@ -96,9 +113,72 @@ function addImage(data){
     $('#loading').slideUp();
 }
 
-$('#wrapper').on('click', '.remove',function () {
+$('#wrapper').on('click', '.remove', function () {
     $(this).parent().parent().parent().slideUp(function () {
         $(this).remove();
     });
 });
 
+// SETTINGS
+$('#settings_export').on('click', function () {
+    var data = {};
+
+    data.bbcode = Cookies.get('bbcode');
+    data.lang = Cookies.get('lang');
+    data.hide_jumbo = Cookies.get('hide_jumbo');
+
+    var jsonStr = JSON.stringify(data);
+
+    download(jsonStr, 'creator-settings.json', 'text/plain');
+});
+
+var bbCodeSaved = false;
+var bbCodeSaveTimeout;
+
+$('#settings_bbcode').on('blur', function () {
+    if (!bbCodeSaved) {
+        clearTimeout(bbCodeSaveTimeout);
+        saveBbCode()
+    }
+});
+
+$('#settings_bbcode').on('keyup', function () {
+    clearTimeout(bbCodeSaveTimeout);
+    bbCodeSaved = false;
+    bbCodeSaveTimeout = setTimeout(function () {
+        bbCodeSaved = true;
+        saveBbCode()
+    }, 1500);
+});
+
+$('#settings_bbcode').on('keydown', function () {
+    bbCodeSaved = false;
+    clearTimeout(bbCodeSaveTimeout);
+});
+
+function saveBbCode() {
+
+    var box = $("#settings_bbcode");
+
+    Cookies.set('bbcode', box.val());
+    $('#settings_bbcode_saved').fadeIn().delay(500).fadeOut();
+}
+
+var showJumbotronTriggerd = false;
+$('#settings_showJumbotron').on('click', function () {
+    if (showJumbotronTriggerd) return;
+
+    showJumbotronTriggerd = true;
+    Cookies.set('hide_jumbo', 0);
+    var self = $(this);
+    self.showTooltip(self.data('success'), 'bottom', function () {
+        self.parent().parent().slideUp(function () {
+            $(this).remove();
+        });
+    });
+
+})
+
+$(document).ready(function () {
+    $('#settings_bbcode').val(Cookies.get('bbcode'));
+});

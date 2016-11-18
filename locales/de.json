@@ -10,14 +10,23 @@
     }
   },
   "settings": {
+    "settings": {
+      "name": "Einstellungen",
+      "description": "Allgemeine Einstellungen und Optionen.",
+      "import": "Einstellungen importieren",
+      "export": "Einstellungen exportieren"
+    },
     "welcome": {
       "name": "Willkommensnachricht",
       "description": "Macht die Willkommensnachricht auf der Startseite wieder sichtbar.",
-      "button": "Anzeigen"
+      "button": "Anzeigen",
+      "success": "Willkommensnachricht ist nun wieder sichtbar."
     },
     "bbcode": {
       "name": "bbCode",
-      "description": "Vorlage zum Erstellen des bbCodes"
+      "description": "Vorlage zum Erstellen des bbCodes",
+      "success": "bbCode gespeichert!",
+      "presets": "Voreinstellung anwenden"
     }
   },
   "footer": {

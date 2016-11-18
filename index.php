@@ -34,7 +34,7 @@ if(strpos(strtolower($_SERVER["HTTP_HOST"]), "dev.creator") !== false) {
 $data = new stdClass();
 
 $data->lang = $locale;
-$data->hidejumbo = isset($_COOKIE["hide_jumbo"]) ? $_COOKIE["hide_jumbo"] == 1 ? true : false : false;
+$data->hidejumbo = isset($_COOKIE["hide_jumbo"]) ? $_COOKIE["hide_jumbo"] == 1 : false;
 
 $locales = array();
 foreach(array_diff(scandir("locales"), array('..', '.')) as $file) {

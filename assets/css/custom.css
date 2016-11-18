@@ -36,3 +36,12 @@
 #url-input {
     margin-bottom: 16px;
 }
+
+#settings_bbcode_saved {
+    display: none;
+}
+
+#presets {
+    width: 100%;
+    margin-bottom: 10px;
+}

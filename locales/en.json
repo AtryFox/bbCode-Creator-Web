@@ -10,14 +10,23 @@
     }
   },
   "settings": {
+    "settings": {
+      "name": "Settings",
+      "description": "Generic settings and options.",
+      "import": "Import settings",
+      "export": "Export settings"
+    },
     "welcome": {
-      "name": "Welcomemessage",
-      "description": "Makes the welcomemessage on the homepage visible again.",
-      "button": "Show"
+      "name": "Welcome message",
+      "description": "Makes the welcome message on the homepage visible again.",
+      "button": "Show",
+      "success": "Welcome message is now visible again!"
     },
     "bbcode": {
       "name": "bbCode",
-      "description": "Template for bbCode creation."
+      "description": "Template for bbCode creation.",
+      "success": "bbCode saved!",
+      "presets": "Apply preset"
     }
   },
   "footer": {

@@ -9,18 +9,50 @@
         <div class="col-xs-12 col-lg-10 offset-lg-1">
 
             <div class="form-group row">
-                <label class="col-md-4 col-form-label">{{lang.settings.bbcode.name}}<br/><small class="text-muted">{{lang.settings.bbcode.description}}</small></label>
+                <label class="col-md-4 col-form-label">{{lang.settings.settings.name}}<br/>
+                    <small class="text-muted">{{lang.settings.settings.description}}</small>
+                </label>
                 <div class="col-md-8">
-                    <textarea class="form-control" rows="8"></textarea>
+                    <button id="settings_export" type="button" class="btn btn-outline-primary">
+                        <i class="fa fa-upload fa-fw"></i> {{lang.settings.settings.export}}
+                    </button>
+                    <button type="button" class="btn btn-outline-primary">
+                        <i class="fa fa-download fa-fw"></i> {{lang.settings.settings.import}}
+                    </button>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-md-4 col-form-label">{{lang.settings.welcome.name}}<br/><small class="text-muted">{{lang.settings.welcome.description}}</small></label>
+                <label class="col-md-4 col-form-label">{{lang.settings.bbcode.name}}
+                    <small id="settings_bbcode_saved" class="text-success"> {{lang.settings.bbcode.success}}</small>
+                    </span><br/>
+                    <small class="text-muted">{{lang.settings.bbcode.description}}</small>
+                </label>
                 <div class="col-md-8">
-                    <input type="button" class="btn btn-outline-primary" value="{{lang.settings.welcome.button}}"/>
+                    <select id="presets" class="custom-select">
+                        <option selected disabled>{{lang.settings.bbcode.presets}}</option>
+                        <option value="1">Something</option>
+                        <option value="2">Something else</option>
+                        <option value="3">Even more</option>
+                    </select>
+
+                    <textarea id="settings_bbcode" class="form-control" rows="8"></textarea>
+
                 </div>
             </div>
+
+            {{#hidejumbo}}
+                <div class="form-group row">
+                    <label class="col-md-4 col-form-label">{{lang.settings.welcome.name}}<br/>
+                        <small class="text-muted">{{lang.settings.welcome.description}}</small>
+                    </label>
+                    <div class="col-md-8">
+                        <button id="settings_showJumbotron" type="button" class="btn btn-outline-primary" data-success="{{lang.settings.welcome.success}}">
+                            <i class="fa fa-eye fa-fw"></i> {{lang.settings.welcome.button}}
+                        </button>
+                    </div>
+                </div>
+            {{/hidejumbo}}
 
         </div>
     </div>
