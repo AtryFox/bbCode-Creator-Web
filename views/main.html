@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="assets/css/custom.css"/>
+    <link rel="stylesheet" href="assets/css/cookieconsent.css"/>
 
     <!-- JS -->
     <script src="assets/js/jquery.min.js" defer></script>
@@ -21,7 +22,36 @@
     <script src="assets/js/cookie.min.js" defer></script>
     <script src="assets/js/mustache.min.js" defer></script>
     <script src="assets/js/download.min.js" defer></script>
+    <script src="assets/js/cookieconsent.min.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#ECEEEF",
+                        "text": "#373A3C"
+                    },
+                    "button": {
+                        "background": "#ECEEEF",
+                        "border": "#5CB85C",
+                        "text": "#5CB85C"
+                    },
+                    "highlight": {
+                        "background": "#5CB85C",
+                        "border": "#5CB85C",
+                        "text": "#FFFFFF"
+                    }
+                },
+                "theme": "classic",
+                "content": {
+                    "message": "{{lang.main.cookie.text}}",
+                    "dismiss": "{{lang.main.cookie.button}}",
+                    "link": "{{lang.main.cookie.link}}"
+                }
+            })
+        });
+    </script>
 </head>
 <body>
 
@@ -39,7 +69,8 @@
 
             <ul class="nav navbar-nav float-lg-right">
                 <li class="nav-item">
-                    <a class="nav-link {{#page_settings}}active{{/page_settings}}" href="settings"><i class="fa fa-cog"></i> {{lang.main.settings}}</a>
+                    <a class="nav-link {{#page_settings}}active{{/page_settings}}" href="settings"><i
+                            class="fa fa-cog"></i> {{lang.main.settings}}</a>
                 </li>
             </ul>
         </div>

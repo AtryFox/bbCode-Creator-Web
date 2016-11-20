@@ -192,7 +192,7 @@ $('#restore').on('click', resetBbCode);
 function saveBbCode(bbCode) {
     if (!initBbCode) return;
 
-    if(typeof bbCode == 'undefined') {
+    if (typeof bbCode == 'undefined') {
         bbCode = $("#settings_bbcode").val()
     }
 
@@ -231,11 +231,9 @@ $(document).ready(function () {
 
     var cookie = Cookies.get('bbcode');
 
-    if (typeof cookie == 'undefined') {
-        console.log('und');
+    if (typeof cookie == 'undefined')
         resetBbCode();
-    } else {
-        console.log('test');
+    else
         $('#settings_bbcode').val(Cookies.get('bbcode'));
-    }
+
 });

@@ -1,6 +1,11 @@
 {
   "main": {
-    "settings": "Settings"
+    "settings": "Settings",
+    "cookie": {
+      "text": "This page is using cookies to ensure you get the best experience.",
+      "button": "Got it!",
+      "link": "Learn more"
+    }
   },
   "home": {
     "jumbotron": {
