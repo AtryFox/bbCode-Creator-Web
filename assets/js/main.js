@@ -128,20 +128,20 @@ $('#settings_import:file').on('change', function () {
     reader.onload = function (event) {
         var data = "";
 
-        try{
+        try {
             data = JSON.parse(event.target.result)
-        }catch(e){
+        } catch (e) {
         }
 
 
-        if(data == "") {
+        if (data == "") {
             $('#settings_import').parent().showTooltip($('#settings_import').data('error'), 'bottom');
             return;
         }
 
-        if(data.hasOwnProperty('bbcode')) Cookies.set('bbcode', data.bbcode);
-        if(data.hasOwnProperty('hide_jumbo')) Cookies.set('hide_jumbo', data.hide_jumbo);
-        if(data.hasOwnProperty('lang')) Cookies.set('lang', data.lang);
+        if (data.hasOwnProperty('bbcode')) Cookies.set('bbcode', data.bbcode);
+        if (data.hasOwnProperty('hide_jumbo')) Cookies.set('hide_jumbo', data.hide_jumbo);
+        if (data.hasOwnProperty('lang')) Cookies.set('lang', data.lang);
 
 
         $('#settings_import').parent().showTooltip($('#settings_import').data('success'), 'bottom');
@@ -189,12 +189,14 @@ $('#settings_bbcode').on('keydown', function () {
 
 $('#restore').on('click', resetBbCode);
 
-function saveBbCode() {
+function saveBbCode(bbCode) {
     if (!initBbCode) return;
 
-    var box = $("#settings_bbcode");
+    if(typeof bbCode == 'undefined') {
+        bbCode = $("#settings_bbcode").val()
+    }
 
-    Cookies.set('bbcode', box.val());
+    Cookies.set('bbcode', bbCode);
     $('#settings_bbcode_saved').fadeIn().delay(500).fadeOut();
 }
 
@@ -202,7 +204,7 @@ function resetBbCode() {
     var bbCode = "[spoiler=[url=%pageurl]%title[/url] by %author]\n[img]%url[/img]\n[/spoiler]";
 
     $('#settings_bbcode').val(bbCode);
-    saveBbCode();
+    saveBbCode(bbCode);
 }
 
 var showJumbotronTriggerd = false;
@@ -226,5 +228,14 @@ $(".btn").on('mouseup', function () {
 
 $(document).ready(function () {
     initBbCode = true;
-    $('#settings_bbcode').val(Cookies.get('bbcode'));
+
+    var cookie = Cookies.get('bbcode');
+
+    if (typeof cookie == 'undefined') {
+        console.log('und');
+        resetBbCode();
+    } else {
+        console.log('test');
+        $('#settings_bbcode').val(Cookies.get('bbcode'));
+    }
 });
