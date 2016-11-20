@@ -141,9 +141,9 @@ $('#settings_import:file').on('change', function () {
         }
 
         if (data.hasOwnProperty('bbcode')) Cookies.set('bbcode', data.bbcode);
-        if (data.hasOwnProperty('hide_jumbo')) Cookies.set('hide_jumbo', data.hide_jumbo);
         if (data.hasOwnProperty('lang')) Cookies.set('lang', data.lang);
-
+        if (data.hasOwnProperty('hide_jumbo')) Cookies.set('hide_jumbo', data.hide_jumbo);
+        if (data.hasOwnProperty('hide_cookie')) Cookies.set('hide_cookie', data.hide_jumbo);
 
         $('#settings_import').parent().showTooltip($('#settings_import').data('success'), 'bottom');
     };
@@ -157,6 +157,7 @@ $('#settings_export').on('click', function () {
     data.bbcode = Cookies.get('bbcode');
     data.lang = Cookies.get('lang');
     data.hide_jumbo = Cookies.get('hide_jumbo');
+    data.hide_cookie = Cookies.get('hide_cookie');
 
     var jsonStr = JSON.stringify(data);
 
