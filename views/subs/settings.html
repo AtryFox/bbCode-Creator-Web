@@ -7,17 +7,25 @@
 
     <div class="row" id="content">
         <div class="col-xs-12 col-lg-10 offset-lg-1">
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label">{{lang.settings.import.name}}<br/>
+                    <small class="text-muted">{{lang.settings.import.description}}</small>
+                </label>
+                <div class="col-md-8">
+                    <label class="custom-file">
+                        <input type="file" id="settings_import" class="custom-file-input" data-success="{{lang.settings.import.success}}" data-error="{{lang.settings.import.error}}">
+                        <span class="custom-file-control"></span>
+                    </label>
+                </div>
+            </div>
 
             <div class="form-group row">
-                <label class="col-md-4 col-form-label">{{lang.settings.settings.name}}<br/>
-                    <small class="text-muted">{{lang.settings.settings.description}}</small>
+                <label class="col-md-4 col-form-label">{{lang.settings.export.name}}<br/>
+                    <small class="text-muted">{{lang.settings.export.description}}</small>
                 </label>
                 <div class="col-md-8">
                     <button id="settings_export" type="button" class="btn btn-outline-primary">
-                        <i class="fa fa-upload fa-fw"></i> {{lang.settings.settings.export}}
-                    </button>
-                    <button type="button" class="btn btn-outline-primary">
-                        <i class="fa fa-download fa-fw"></i> {{lang.settings.settings.import}}
+                        <i class="fa fa-upload fa-fw"></i> {{lang.settings.export.button}}
                     </button>
                 </div>
             </div>
@@ -29,12 +37,9 @@
                     <small class="text-muted">{{lang.settings.bbcode.description}}</small>
                 </label>
                 <div class="col-md-8">
-                    <select id="presets" class="custom-select">
-                        <option selected disabled>{{lang.settings.bbcode.presets}}</option>
-                        <option value="1">Something</option>
-                        <option value="2">Something else</option>
-                        <option value="3">Even more</option>
-                    </select>
+                    <button type="button" id="restore" class="btn btn-outline-primary">
+                        <i class="fa fa-file-code-o fa-fw"></i> {{lang.settings.bbcode.restore}}
+                    </button>
 
                     <textarea id="settings_bbcode" class="form-control" rows="8"></textarea>
 

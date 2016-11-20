@@ -10,11 +10,16 @@
     }
   },
   "settings": {
-    "settings": {
-      "name": "Settings",
-      "description": "Generic settings and options.",
-      "import": "Import settings",
-      "export": "Export settings"
+    "import": {
+      "name": "Import settings",
+      "description": "Import your settings from a .json file.",
+      "success": "Settings imported! Reload page to apply changes.",
+      "error": "Error importing settings!"
+    },
+    "export": {
+      "name": "Export settings",
+      "description": "Export your current settings to a .json file.",
+      "button": "Download settings"
     },
     "welcome": {
       "name": "Welcome message",
@@ -26,7 +31,8 @@
       "name": "bbCode",
       "description": "Template for bbCode creation.",
       "success": "bbCode saved!",
-      "presets": "Apply preset"
+      "presets": "Apply preset",
+      "restore": "Restore default"
     }
   },
   "footer": {

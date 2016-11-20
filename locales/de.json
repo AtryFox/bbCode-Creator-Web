@@ -10,11 +10,16 @@
     }
   },
   "settings": {
-    "settings": {
-      "name": "Einstellungen",
-      "description": "Allgemeine Einstellungen und Optionen.",
-      "import": "Einstellungen importieren",
-      "export": "Einstellungen exportieren"
+    "import": {
+      "name": "Einstellungen importieren",
+      "description": "Importiere deine Einstellungen von einer .json Datei.",
+      "success": "Einstellungen importiert! Seite neuladen, um Änderungen anzuwenden.",
+      "error": "Einstellungen konnten nicht importiert werden!"
+    },
+    "export": {
+      "name": "Einstellungen exportieren",
+      "description": "Exportiere deine Einstellungen in eine .json Datei.",
+      "button": "Einstellungen herunterladen"
     },
     "welcome": {
       "name": "Willkommensnachricht",
@@ -26,7 +31,8 @@
       "name": "bbCode",
       "description": "Vorlage zum Erstellen des bbCodes",
       "success": "bbCode gespeichert!",
-      "presets": "Voreinstellung anwenden"
+      "presets": "Voreinstellung anwenden",
+      "restore": "Standard wiederherstellen"
     }
   },
   "footer": {

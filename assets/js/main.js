@@ -47,7 +47,6 @@ $('#getImage').on('click', function () {
     } else {
         addImage(null);
     }
-
 });
 
 function getDeviantart(url, callback) {
@@ -106,6 +105,8 @@ function addImage(data) {
             $(rendered).appendTo($('#wrapper')).hide().slideDown();
 
         });
+
+        $('#url').val('');
     }
 
     $('#getImage').prop('disabled', false);
@@ -120,6 +121,35 @@ $('#wrapper').on('click', '.remove', function () {
 });
 
 // SETTINGS
+$('#settings_import:file').on('change', function () {
+    var file = this.files[0]
+
+    var reader = new FileReader();
+    reader.onload = function (event) {
+        var data = "";
+
+        try{
+            data = JSON.parse(event.target.result)
+        }catch(e){
+        }
+
+
+        if(data == "") {
+            $('#settings_import').parent().showTooltip($('#settings_import').data('error'), 'bottom');
+            return;
+        }
+
+        if(data.hasOwnProperty('bbcode')) Cookies.set('bbcode', data.bbcode);
+        if(data.hasOwnProperty('hide_jumbo')) Cookies.set('hide_jumbo', data.hide_jumbo);
+        if(data.hasOwnProperty('lang')) Cookies.set('lang', data.lang);
+
+
+        $('#settings_import').parent().showTooltip($('#settings_import').data('success'), 'bottom');
+    };
+
+    reader.readAsText(file);
+});
+
 $('#settings_export').on('click', function () {
     var data = {};
 
@@ -134,6 +164,7 @@ $('#settings_export').on('click', function () {
 
 var bbCodeSaved = false;
 var bbCodeSaveTimeout;
+var initBbCode = false;
 
 $('#settings_bbcode').on('blur', function () {
     if (!bbCodeSaved) {
@@ -156,12 +187,22 @@ $('#settings_bbcode').on('keydown', function () {
     clearTimeout(bbCodeSaveTimeout);
 });
 
+$('#restore').on('click', resetBbCode);
+
 function saveBbCode() {
+    if (!initBbCode) return;
 
     var box = $("#settings_bbcode");
 
     Cookies.set('bbcode', box.val());
     $('#settings_bbcode_saved').fadeIn().delay(500).fadeOut();
+}
+
+function resetBbCode() {
+    var bbCode = "[spoiler=[url=%pageurl]%title[/url] by %author]\n[img]%url[/img]\n[/spoiler]";
+
+    $('#settings_bbcode').val(bbCode);
+    saveBbCode();
 }
 
 var showJumbotronTriggerd = false;
@@ -177,8 +218,13 @@ $('#settings_showJumbotron').on('click', function () {
         });
     });
 
-})
+});
+
+$(".btn").on('mouseup', function () {
+    $(this).blur();
+});
 
 $(document).ready(function () {
+    initBbCode = true;
     $('#settings_bbcode').val(Cookies.get('bbcode'));
 });
