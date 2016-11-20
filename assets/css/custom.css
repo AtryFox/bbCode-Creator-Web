@@ -1,12 +1,12 @@
-#footer {
+.footer {
     font-size: 90%;
 }
 
-#footer p {
+.footer p {
     margin-bottom: 6px;
 }
 
-#footer .fa.fa-heart{
+.footer .fa.fa-heart{
     color: red;
 }
 
@@ -34,7 +34,8 @@
 }
 
 #url-input {
-    margin-bottom: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 #settings_bbcode_saved {
@@ -43,4 +44,17 @@
 
 #restore {
     margin-bottom: 10px;
+}
+
+#homejumbotron {
+    margin-bottom: 1rem;
+}
+
+#cookie {
+    padding: 12px 0;
+    margin-bottom: 1rem;
+}
+
+#cookie p {
+    margin: 0;
 }

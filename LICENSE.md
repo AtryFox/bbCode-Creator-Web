@@ -32,4 +32,3 @@ SOFTWARE.
 - [Font Awesome](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL) (Font license)
 - [Font Awesome](http://opensource.org/licenses/mit-license.html) (Code license)
 - [download](https://github.com/rndme/download/blob/master/LICENSE.md)
-- [Cookie Consent](https://cookieconsent.insites.com/documentation/license/)

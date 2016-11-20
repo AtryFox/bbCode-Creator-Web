@@ -34,6 +34,7 @@ if(strpos(strtolower($_SERVER["HTTP_HOST"]), "dev.creator") !== false) {
 $data = new stdClass();
 
 $data->lang = $locale;
+$data->hidecookie = isset($_COOKIE["hide_cookie"]) ? $_COOKIE["hide_cookie"] == 1 : false;
 $data->hidejumbo = isset($_COOKIE["hide_jumbo"]) ? $_COOKIE["hide_jumbo"] == 1 : false;
 
 $locales = array();

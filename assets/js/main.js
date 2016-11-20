@@ -24,14 +24,15 @@ $('#locales a').on('click', function () {
     location.reload();
 });
 
-$('#dismiss').on('click', function () {
+$('.jumbotron .dismissible').on('click', function () {
     $(this).tooltip('dispose');
     $(this).parent().parent().slideUp(function () {
         $(this).remove();
     });
 
-    Cookies.set('hide_jumbo', 1);
+    Cookies.set($(this).data('cookie'), 1);
 });
+
 
 $('#getImage').on('click', function () {
     var url = $('#url').val();
