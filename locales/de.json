@@ -48,7 +48,7 @@
   "creator": {
     "form": {
       "add": "Hinzufügen",
-      "manuel": "Manuell",
+      "manual": "Manuell",
       "placeholder": "deviantArt oder Derpibooru URL"
     },
     "preview": {

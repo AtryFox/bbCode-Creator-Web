@@ -7,7 +7,7 @@ $.fn.extend({
         placement = placement || 'top';
 
         this.attr('data-original-title', text);
-        this.tooltip({title: text, placement: placement, trigger: 'manuel'});
+        this.tooltip({title: text, placement: placement, trigger: 'manual'});
         this.tooltip('show');
 
         var element = this;
@@ -104,7 +104,6 @@ function addImage(data) {
         $.get('views/elements/image.html', function (template) {
             var rendered = Mustache.render(template, data);
             $(rendered).appendTo($('#wrapper')).hide().slideDown();
-
         });
 
         $('#url').val('');
@@ -133,7 +132,6 @@ $('#settings_import:file').on('change', function () {
             data = JSON.parse(event.target.result)
         } catch (e) {
         }
-
 
         if (data == "") {
             $('#settings_import').parent().showTooltip($('#settings_import').data('error'), 'bottom');
@@ -221,7 +219,6 @@ $('#settings_showJumbotron').on('click', function () {
             $(this).remove();
         });
     });
-
 });
 
 $(".btn").on('mouseup', function () {
