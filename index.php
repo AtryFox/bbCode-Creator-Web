@@ -63,8 +63,4 @@ switch ($page) {
         break;
 }
 
-function getVersion() {
-
-}
-
 echo $m->render("main", $data);
